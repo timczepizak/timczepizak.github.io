@@ -1,24 +1,357 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<style>
+    .gradeTable {
+        border:black 2px;
+        margin-left:20%;
+        font-size:14px;
+    }
+    td{
+        padding: 2% 0.5% 2% 0.5%;
+    }
+    th{
+        position: relative;
+        text-align:center;
+        background: rgb(179, 211, 221);
+    }
+    .odd{
+        background: rgb(245, 245, 245)
+    }
+    .even{
+        background: rgb(255, 174, 247)
+    }
+</style>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <body>
 <div>
     <a href="index.html" role="button" class="btn btn-primary">Home</a>
     <a href="Projects.html" role="button" class="btn">Projects</a>
     <a href="" role="button" class="btn">Grades</a>
+    <a href="Resume.html" role="button" class="btn">Resume</a>
 </div>
-<h1>Tim  Czepizak</h1>
+<h1>Grades</h1>
 <div>
-    <div>
+    <div class="">
         <div>
-            <p>
-               Grades
-            </p>
+            
         </div>
+    </div>
+
+    <div class="col-10">
+        <table id="GradesTable" class="gradeTable">
+            <thead>
+                <tr> 
+                    <th style="width: 12%">
+                        UIC_Course_ID 
+                    </th>
+                    <th style="width: 12%">
+                        Class_Name
+                    </th style="width: 61%">
+                    <th>
+                        Description
+                    </th>
+                    <th style="width: 10%">
+                        Location
+                    </th>
+                    <th style="width: 5%">
+                        Grade
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="">
+
     </div>
 </div>
 </body>
+<script>
+   var gradeJSON = [
+ {
+   "UIC_Course_ID": "CS 109",
+   "Class_Name": "C/C++ Programming",
+   "Description": "Program design using C/C++: Data types and operators, control structures, functions, file I/O, arrays and structures. Engineering applications: Matrices, equation solution, MatLab. Programming assignments. ",
+   "Location": "Harper College",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "ENGL 161",
+   "Class_Name": "Academic Writing II",
+   "Description": "Students learn about academic inquiry and complete several writing projects including a documented research paper. ",
+   "Location": "Harper College",
+   "Grade": "C"
+ },
+ {
+   "UIC_Course_ID": "MATH 180",
+   "Class_Name": "Calculus I",
+   "Description": "Differentiation, curve sketching, maximum-minimum problems, related rates, mean-value theorem, antiderivative, Riemann integral, logarithm, and exponential functions.",
+   "Location": "Harper College",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "MATH 181",
+   "Class_Name": "Calculus II",
+   "Description": "Techniques of integration, arc length, solids of revolution, applications, polar coordinates, parametric equations, infinite sequences and series, power series. ",
+   "Location": "Harper College",
+   "Grade": "D"
+ },
+ {
+   "UIC_Course_ID": "MATH 181",
+   "Class_Name": "Calculus II (Attempt 2)",
+   "Description": "Techniques of integration, arc length, solids of revolution, applications, polar coordinates, parametric equations, infinite sequences and series, power series. ",
+   "Location": "Harper College",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "PHYS 141",
+   "Class_Name": "General Physics I",
+   "Description": "Kinematics, vectors, Newton?s laws of motion; linear momentum, collisions; work and kinetic energy; potential energy, conservation of energy; rotational kinematics and energy; rotational dynamics, static equilibrium; simple harmonic motion. ",
+   "Location": "Harper College",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "CS 141",
+   "Class_Name": "Program Design II",
+   "Description": "Data abstraction and modular design; recursion; lists and stacks; dynamic memory allocation; file manipulation; programming exercises.",
+   "Location": "Lonestar Community College",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "HIST 104",
+   "Class_Name": "Modern America",
+   "Description": "Introduction to the political, cultural, and social developments in American society since the end of the Civil War.",
+   "Location": "Lonestar Community College",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "MATH 210",
+   "Class_Name": "Calculus III",
+   "Description": "Vectors in space, functions of several variables, partial differential and optimization, multiple integrals, vector fields, Green?s Theorem, Stokes Theorem.",
+   "Location": "Lonestar Community College",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "PHYS 142",
+   "Class_Name": "General Physics II",
+   "Description": "Electrostatics; electric currents; d-c circuits; magnetic fields; magnetic media; electromagnetic induction; a-c circuits; Maxwell?s equations; electromagnetic waves; reflection and refraction; interference; geometrical optics.",
+   "Location": "Lonestar Community College",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "POLS 101",
+   "Class_Name": "Intro to American Government",
+   "Description": "Introduction to American political ideas, individual and group political behavior, institutions of national government, and public policy.",
+   "Location": "Lonestar Community College",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "PSCH 100",
+   "Class_Name": "Introductory Psychology",
+   "Description": "Survey of basic concepts of contemporary psychology. Introduction to the nervous system, perception, motivation, learning and memory, social behavior, personality, developmental and clinical psychology. ",
+   "Location": "Lonestar Community College",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "CHEM 100",
+   "Class_Name": "Chemistry and Life",
+   "Description": "Principles of structural and environmental chemistry underlying the phenomenon of life on Earth, discussed in a historical, cultural and philosophical framework. Includes weekly two-hour laboratory. ",
+   "Location": "Elk Grove Highschool",
+   "Grade": "AP"
+ },
+ {
+   "UIC_Course_ID": "ENGL 160",
+   "Class_Name": "Academic Writing I",
+   "Description": "Students write in a variety of genres with an emphasis on argument and sentence-level grammar. Topics vary by section.",
+   "Location": "Elk Grove Highschool",
+   "Grade": "AP"
+ },
+ {
+   "UIC_Course_ID": "GEOG 100",
+   "Class_Name": "Concepts in Geography",
+   "Description": "Geographic concepts drawn from the areas of cultural, urban/economic, physical, and regional geography. ",
+   "Location": "Elk Grove Highschool",
+   "Grade": "AP"
+ },
+ {
+   "UIC_Course_ID": "HIST 100",
+   "Class_Name": "Western Civ To 1648",
+   "Description": "Introduction to the development of Western civilization and the modern world: ancient medieval and early modern history.",
+   "Location": "Elk Grove Highschool",
+   "Grade": "AP"
+ },
+ {
+   "UIC_Course_ID": "HIST 101",
+   "Class_Name": "Western Civ To Since 1648",
+   "Description": "Introduction to the development of Western civilization in the early modern and modern world. ",
+   "Location": "Elk Grove Highschool",
+   "Grade": "AP"
+ },
+ {
+   "UIC_Course_ID": "CS 151",
+   "Class_Name": "Foundations of Computing",
+   "Description": "Discrete mathematics concepts fundamental to computing: propositional logic, predicates and quantifiers; proofs; sets; recursive definitions and induction; functions, relations and graphs; combinatorics and discrete probability; applications. ",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "CS 211",
+   "Class_Name": "Programming Practicum",
+   "Description": "Software development tools and practices; debugging and testing; advanced language features; standard libraries; code management.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "CS 261",
+   "Class_Name": "Machine Organization ",
+   "Description": "Data representation and computer arithmetic; machine language; addressing; memory hierarchy; subroutines; data structures; processor architecture: hardwdare components, pipelining. ",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "ENGR 100",
+   "Class_Name": "Engineering Orientation",
+   "Description": "A general orientation course on careers in the engineering profession. Discussion of college advising procedures. Required of all engineering students.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "S"
+ },
+ {
+   "UIC_Course_ID": "MUS 100",
+   "Class_Name": "Introduction To Music I",
+   "Description": "Listening, understanding, and enjoying music.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "STAT 381",
+   "Class_Name": "Applied Statistical Methods I",
+   "Description": "Graphical and tabular representation of data; Introduction to probability, random variables, sampling distributions, estimation, confidence intervals, and tests of hypotheses. Includes SAS and SPSSX applications. ",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "CS 251",
+   "Class_Name": "Data Structures",
+   "Description": "Design, usage and analysis of data structures: review of lists, stacks and queues; hash tables, priority queues, search trees, introduction to graphs; searching and sorting; runtime analysis; programming projects and lab exercises.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "CS 301",
+   "Class_Name": "Languages and Automata",
+   "Description": "Regular sets and finite automata. Context-free languages and push-down automata. Parsing. Computability theory including Turing machines and decidability.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "CS 362",
+   "Class_Name": "Computer Design",
+   "Description": "Computer hardware building blocks. logic gates; combinational circuits; arithmetic circuits; flip flops and sequential circuits; registers and memory; CPU design; I/O design.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "MATH 220",
+   "Class_Name": "Differential Equations I",
+   "Description": "Techniques and applications of differential equations, first and second order equations, Laplace transforms, series solutions, graphical and numerical methods, and partial differential equations.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "MATH 310",
+   "Class_Name": "Applied Linear Algebra",
+   "Description": "Matrices, row reduction algorithm, vector spaces, LU-decomposition, orthogonality, Gram-Schmidt process, determinants, inner products, eigenvalue problems, applications to differential equations and Markov processes.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "CS 342",
+   "Class_Name": "Software Design",
+   "Description": "Software design principles and practices: Object-oriented design; design patterns; software reuse; testing; event driven programming and concurrency; graphical user interface design and development; Team development. ",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "CS 361",
+   "Class_Name": "Systems Programming",
+   "Description": "Study of computer systems emphasizing impact on application level programming. Virtual memory and memory management; code optimization; system-level I/O; concurrency: processes, threads, synchronization; introduction to network programming. ",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "B"
+ },
+ {
+   "UIC_Course_ID": "CS 377",
+   "Class_Name": "Communication and Ethics",
+   "Description": "Communication skills for computing professionals: presentation organization, visual aides, delivery techniques, argument support. Ethical and societal issues in computing: privacy, intellectual property and ownership, crime.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "CS 401",
+   "Class_Name": "Computer Algorithms I",
+   "Description": "Design and analysis of computer algorithms. Divide-and-conquer, dynamic programming, greedy method, backtracking. Algorithms for sorting, searching, graph computations, pattern matching, NP-complete problems.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "C"
+ },
+ {
+   "UIC_Course_ID": "PSCH 242",
+   "Class_Name": "Intro to Research in Psch",
+   "Description": "Techniques and problems associated with the study of behavior. Emphasis on measurement, descriptive statistics, and the principles of experimental design. Exercises involving data collection. Participation in research. ",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "CS 341",
+   "Class_Name": "Programming Language Concepts",
+   "Description": "Programming language paradigms, design and implementation: syntax and semantics; parsing; runtime systems; control; data types; subroutines and exceptions; data and procedural abstraction; functional programming. ",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "CS 422",
+   "Class_Name": "User Interface Design",
+   "Description": "User interface design, implementation, and evaluation: user-centered design methodologies, windowing systems, I/O devices and techniques, event-loop programming, user studies. Programming projects.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "CS 426",
+   "Class_Name": "Video Game Design",
+   "Description": "Theory and practice of video game design and programming. Students will form interdisciplinary teams, to design, build and demonstrate video games or related interactive simulation environments. ",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "CS 480",
+   "Class_Name": "Database Systems",
+   "Description": "Database design, logical design, physical design. Relational databases. Recovery, concurrency control. Normalization.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ },
+ {
+   "UIC_Course_ID": "CS 489",
+   "Class_Name": "Human Augmentics",
+   "Description": "Study of technologies for augmentation of human capabilities; human limitations; implants and wearable technologies; implants; brain-computer interfaces; exoskeletons; sensors and networks. Includes project work.",
+   "Location": "University Of Illinois - Chicago",
+   "Grade": "A"
+ }
+]
+    $(document).ready(function(){
+        for(var i = 0; i < gradeJSON.length; i++){
+            if(i % 2 == 0){
+                $('#GradesTable tr:last').after('<tr class="even"><td>'+ gradeJSON[i].UIC_Course_ID +'</td><td>'+ gradeJSON[i].Class_Name + '</td><td>' + gradeJSON[i].Description + '</td><td>' + gradeJSON[i].Location + '</td><td>' + gradeJSON[i].Grade + '</td></tr>')
+            }
+            else {
+                $('#GradesTable tr:last').after('<tr class="odd" ><td>'+ gradeJSON[i].UIC_Course_ID +'</td><td>'+ gradeJSON[i].Class_Name + '</td><td>' + gradeJSON[i].Description + '</td><td>' + gradeJSON[i].Location + '</td><td>' + gradeJSON[i].Grade + '</td></tr>')
+            }
+       }
+    });
+
+</script>
 </html>
